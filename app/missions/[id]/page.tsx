@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import MissionDetails from '@/components/MissionDetails';
 import { supabase } from '@/lib/supabase';
 
-export default async function MissionPage({ params }: { params: { id: string } }) {
+export default async function MissionPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const { data, error } = await supabase
     .from('missions')
