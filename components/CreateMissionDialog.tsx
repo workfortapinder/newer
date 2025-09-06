@@ -33,7 +33,8 @@ const iconMap = {
   Repeat,
   Coffee,
 };
-const iconNames = Object.keys(iconMap) as IconName[];
+// Define as a readonly tuple so z.enum() can infer a valid tuple type
+const iconNames = ['Book', 'Dumbbell', 'Feather', 'Leaf', 'Repeat', 'Coffee'] as const;
 
 const formSchema = z.object({
   title: z.string().min(3, 'Title must be at least 3 characters long.'),
